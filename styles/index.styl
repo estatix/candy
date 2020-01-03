@@ -1,0 +1,50 @@
+// vars
+
+$colors ?= json('./colors.json', { hash: true })
+
+// functions
+
+$GRID_BASE_DECIMAL = 5px
+$GRID_BASE_OCTAL = 8px
+
+$decimalSizeMap = {
+  s:    1px
+  m:    2px
+  ls:   3px
+  l:    4px
+  xls:  5px
+  xl:   6px
+  xxls: 8px
+  xxl:  10px
+}
+
+$octalSizeMap = {
+  s:    1px
+  m:    2px
+  l:    3px
+  xl:   4px
+  xls:  6px
+  xxl:  8px
+}
+
+dsize(value = m)
+  // Workaround global built-in function s()
+  // http://stylus-lang.com/docs/bifs.html#sfmt-
+  value = 's' if value is s
+
+  key = '' + value
+  if key in $decimalSizeMap
+    return $decimalSizeMap[key] * $GRID_BASE_DECIMAL
+  else
+    return $decimalSizeMap['m'] * $GRID_BASE_DECIMAL
+
+osize(value = m)
+  // Workaround global built-in function s()
+  // http://stylus-lang.com/docs/bifs.html#sfmt-
+  value = 's' if value is s
+
+  key = '' + value
+  if key in $octalSizeMap
+    return $octalSizeMap[key] * $GRID_BASE_OCTAL
+  else
+    return $octalSizeMap[key] * $GRID_BASE_OCTAL
