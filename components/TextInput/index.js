@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TextInput } from 'react-native'
+import { TextInput } from 'react-native'
 import './index.styl'
 
 export default class Input extends React.Component {
@@ -10,13 +10,13 @@ export default class Input extends React.Component {
   render() {
     const { value = '' } = this.props
 
-    return (
-      <TextInput
-        styleName={['inputArea']}
-        value={this.state.text}
-        onChangeText={text => this.setState({ text })}
-      ></TextInput>
-    )
+    return pug `
+      TextInput(
+        styleName=['inputArea']
+        value=this.state.text
+        onChangeText=text => this.setState({ text })
+      )
+    `
   }
 }
 
