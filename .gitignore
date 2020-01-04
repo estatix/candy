@@ -61,3 +61,6 @@ buck-out/
 
 # DB data
 /data/
+
+# Redis dump
+dump.rdb 
