@@ -5,7 +5,7 @@ import { BASE_URL } from '@env'
 import { observer } from 'startupjs'
 
 import { View } from 'react-native'
-import Input from 'components/TextInput'
+import { TextInput, Button } from 'components'
 import './Root.styl'
 
 // Init startupjs connection to server and the ORM.
@@ -17,6 +17,7 @@ init({ baseUrl: BASE_URL, orm })
 export default observer(function() {
   return pug `
     View.root
-      Input
+      TextInput
+      Button
   `
 })
